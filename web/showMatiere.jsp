@@ -6,7 +6,7 @@
 
 <%@page import="iit.tn.entity.MatiereDAO"%>
 <%@page import="iit.tn.entity.Matiere"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,19 +16,16 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <%
-            Matiere m=(Matiere)session.getAttribute("matiere");
+        
+
             
-            out.print("coefficient: "+m.getCoeficient());
-            out.print("credit: "+m.getCredit());
-            out.print("compostage: "+m.getId_compostage());
-            out.print("libelle: "+m.getLibelle());
-            out.print("volume c: "+m.getVolumec());
-            out.print("volume td: "+m.getVolumetd());
-            out.print("volume tp: "+m.getVolumetp());
-         
+         coefficient:   ${sessionScope.matiere.coefficient}
+         credit:   ${sessionScope.matiere.credit}
+        compostage:    ${sessionScope.matiere.num_compostage}
+         libelle:    ${sessionScope.matiere.libelle}
+          volume c:  ${sessionScope.matiere.volumec}
+         volume td:    ${sessionScope.matiere.volumetd}
+         volume tp:    ${sessionScope.matiere.volumetp}
             
-            
-            %>
     </body>
 </html>

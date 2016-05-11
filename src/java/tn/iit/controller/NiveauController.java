@@ -94,7 +94,7 @@ public int i=0;
             rd = getServletContext().getRequestDispatcher("/editerNiveau.jsp");
             Niveau niveau = NiveauDAO.getNiveauById(request.getParameter("id"));
             HttpSession ses = request.getSession();
-            ses.setAttribute("niveau_edit", niveau);
+            ses.setAttribute("niveau", niveau);
 
             if (rd == null) {
                 response.sendError(404);
@@ -159,7 +159,7 @@ public int i=0;
             rd.forward(request, response);
 
         } else if (request.getParameter("action").equals("ajouter_niveau")) {
-            NiveauDAO. add(i, request.getParameter("nom"), request.getParameter("update"));
+            NiveauDAO. add( request.getParameter("nom"), request.getParameter("nb_groupe"));
             
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/listeNiveau.jsp");

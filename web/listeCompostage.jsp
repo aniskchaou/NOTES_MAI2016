@@ -17,30 +17,19 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <c:out value="hi" ></c:out> 
-        <%   List<NumCompostage> numcompostages = NumCompostageDAO.getAll(); 
+      
+            <table>
+                <tr><td>id</td><td>num compostage</td></tr>
+                <c:forEach items="${numcompostages}" var="item">
+                    <tr><td> ${item.id}</td><td> ${item.num_compostage}</td></tr>
+                   
+               </c:forEach>
+                
+            </table>
 
-        for(int i=0;i<numcompostages.size();i++)
-        {      
-                NumCompostage     numcompostage=numcompostages.get(i);
-               // out.print(numcompostage.getNum_compostage());
-            %>
-        ${numcompostage.num_compostage}
-            
-            <%
-        }
-        
-        %>
-        <%
-  String valeur = "fzr";  
-  
-  %>
-<c:forEach items="${numcompostages}" var="item">
-    ${item.id}<br>
-</c:forEach>
  
 
-
+        <a href="http://localhost:47032/projet_java/NumCompostageController?action=add">ajouter compostage</a>
     </body>
 </html>
 

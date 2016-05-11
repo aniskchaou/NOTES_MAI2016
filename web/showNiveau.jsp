@@ -3,7 +3,7 @@
     Created on : May 4, 2016, 10:56:59 AM
     Author     : Hsin
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="iit.tn.entity.NiveauDAO"%>
 <%@page import="iit.tn.entity.Niveau"%>
 <%@page import="tn.iit.controller.NiveauController"%>
@@ -16,15 +16,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <%
-            Niveau  n=(Niveau)session.getAttribute("niveau");
-            
-       out.print("nombre de groupe: "+n.getNb_groupe());
-       out.print("nom: "+n.getNom());
-            
-            
-            
-            
-            %>
+
+            nombre de groupe: <c:out  value="${sessionScope.niveau.nb_groupe}"/>
+            nom: <c:out  value="${sessionScope.niveau.nom}"/>
     </body>
 </html>

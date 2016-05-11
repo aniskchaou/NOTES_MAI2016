@@ -15,16 +15,12 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-                <%  
-          
- Niveau  niveau=(Niveau)session.getAttribute("niveau");  
-  //      Matiere  matiere=new Matiere();
-        %>
+
                 <form action="http://localhost:47032/projet_java/NiveauController" method="post">
-            <input type="text"  name="nom" <%  out.print("value='"+niveau.getNom()+ "'");  %> />
-                   <input type="text" name="nb_groupe" <%  out.print("value='"+niveau.getNb_groupe()+ "'");  %> />
+                    <input type="text"  name="nom" value="${sessionScope.niveau.nom}"/>
+                   <input type="text" name="nb_groupe"  value="${sessionScope.niveau.nb_groupe}" />
                    <input type="hidden" name="action" value="update"/>
-                   <input type="hidden" name="id" <%  out.print("value='"+niveau.getId()+ "'");  %> />
+                   <input type="hidden" name="id"  value="${sessionScope.niveau.id}"/>
                    <input type="submit" value="ajouter"/>
         </form>
         

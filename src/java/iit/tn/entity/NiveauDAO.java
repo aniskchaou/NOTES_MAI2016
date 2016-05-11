@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class NiveauDAO {
 
-    public static void add(int id, String nom, String nbgroupe) {
+    public static void add(String nom, String nbgroupe) {
         Session session = null;
         HibernateUtil helper = null;
         try {

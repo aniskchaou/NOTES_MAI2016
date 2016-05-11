@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ajouter Niveau</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+      
         <form action="http://localhost:47032/projet_java/NiveauController" method="post">
             <input type="text"  name="nom"/>
                    <input type="text" name="nb_groupe"/>
@@ -21,5 +21,5 @@
         </form>
         
     </body>
-    <a href="addMatiere.jsp"></a>
+   
 </html>

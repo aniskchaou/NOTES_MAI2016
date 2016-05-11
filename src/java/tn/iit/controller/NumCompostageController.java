@@ -69,11 +69,11 @@ public class NumCompostageController extends HttpServlet {
             rd.forward(request, response);
         }else if (request.getParameter("action").equals("add")) {
             RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/addNumCompostage.jsp");
+            rd = getServletContext().getRequestDispatcher("/addnumCompostage.jsp");
             if (rd == null) {
                 response.sendError(404);
             }
-
+           NumCompostageDAO.add(request.getParameter("numcompostage"));
             rd.forward(request, response);
 
         }

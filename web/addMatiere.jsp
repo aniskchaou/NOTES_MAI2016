@@ -3,7 +3,7 @@
     Created on : Apr 28, 2016, 11:10:05 AM
     Author     : Hsin
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="iit.tn.entity.EnseignantDAO"%>
 <%@page import="iit.tn.entity.NumCompostageDAO"%>
 <%@page import="tn.iit.controller.NumCompostageController"%>
@@ -35,27 +35,20 @@
             <input  name="credit"/>
             Num compostage
             <select name="num_compostage">
-            <%
-                List<NumCompostage> liste=NumCompostageDAO.getAll();
-                
-                 for(int i=0;i<liste.size();i++)
-                 {
-                     out.print("<option value='"+liste.get(i).getId()+"'>"+liste.get(i).getNum_compostage()+"</option>");
-                 }
-            
-        %>
+         <c:forEach items="${sessionScope.num_compostages}" var="item">
+                             
+                                   <option value="${item.id}">${item.num_compostage}</option>
+                             
+                             </c:forEach>
             </select>
             
                          <select name="id_enseignant">
-            <%
-                List<Enseignant> liste_enseignant=EnseignantDAO.getAll();
-                
-                 for(int i=0;i<liste_enseignant.size();i++)
-                 {
-                     out.print("<option value='"+liste_enseignant.get(i).getId()+"'>"+liste_enseignant.get(i).getNom()+"</option>");
-                 }
+                  <c:forEach items="${sessionScope.enseignants}" var="item">
+                             
+                                   <option value="${item.id}">${item.nom}</option>
+                             
+                             </c:forEach>
             
-        %>
             </select>
       <input type="hidden" name="action" value="ajouter_matiere"/>
             <input  type="submit" value="ajouter"/>

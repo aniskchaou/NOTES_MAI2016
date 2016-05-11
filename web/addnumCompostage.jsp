@@ -14,10 +14,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Add Num Compostage</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
         <form action="http://localhost:47032/projet_java/NumCompostageController" method="post">
             num compostage
             <input type="text" name="numcompostage">

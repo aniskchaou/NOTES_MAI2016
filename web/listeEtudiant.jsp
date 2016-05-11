@@ -1,5 +1,5 @@
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="tn.iit.controller.EtudiantController"%>
 <%@page import="java.util.List"%>
 <%@page import="iit.tn.entity.Etudiant"%>
@@ -11,37 +11,40 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+
         <h1>Liste Etudiant</h1>
-         <table>
-             <tr><td>id</td><td>nom</td><td>prenom</td><td>tel</td><td>groupe</td><td>matiere</td></tr>
-                <%   List<Etudiant>   liste_etudiant=(List<Etudiant>)session.getAttribute("etudiants");  
-             for(int i=0;i<liste_etudiant.size();i++)
-          {
-              %>
-              <tr>
-                  <td>
-                  <td><%   out.print( liste_etudiant.get(i).getId()) ; %></td>
-                  <td><% out.print(liste_etudiant.get(i).getNom()); %></td>
-                  <td><% out.print(liste_etudiant.get(i).getPrenom()); %></td>
-                 <td><% out.print(liste_etudiant.get(i).getTel()); %></td>
-                      <td><% out.print(liste_etudiant.get(i).getId_groupe()); %></td>
-                           <td><% out.print(liste_etudiant.get(i).getId_matiere()); %></td>
-                 
-                 
-                           <td><a <%  out.print("href='http://localhost:47032/projet_java/EtudiantController?action=show&id="+liste_etudiant.get(i).getId()+ " '"); %>>voir</a></td>
-                           <td><a <%  out.print("href='http://localhost:47032/projet_java/EtudiantController?action=edit&id="+liste_etudiant.get(i).getId()+ " '"); %>>modifier</a></td>
-                           <td><a <%  out.print("href='http://localhost:47032/projet_java/EtudiantController?action=delete&id="+liste_etudiant.get(i).getId()+ " '"); %>>supprimer </a></td>
-              </tr>
-                  
-              
-              
-              <%
-          }
-            
-            %>
-            </table>
-            <a href="http://localhost:47032/projet_java/EtudiantController?action=add">ajouter</a>
-                
+        <table>
+            <tr><td>id</td><td>nom</td><td>prenom</td><td>tel</td><td>groupe</td><td>matiere</td></tr>
+            <c:forEach items="${sessionScope.etudiants}" var="item">
+
+
+
+
+
+
+
+
+                <tr>
+                    <td>
+                    <td> ${item.id}</td>
+                    <td>${item.nom}</td>
+                    <td> ${item.prenom}</td>
+                    <td> ${item.tel}</td>
+                    <td> ${item.id_groupe}</td>
+
+                    <td> ${item.id_matiere}</td>
+
+
+                    <td><a href="http://localhost:47032/projet_java/EtudiantController?action=show&id=${item.id}">voir</a></td>
+                    <td><a href="http://localhost:47032/projet_java/EtudiantController?action=edit&id=${item.id}">modifier</a></td>
+                    <td><a href="http://localhost:47032/projet_java/EtudiantController?action=delete&id=${item.id}">supprimer </a></td>
+                </tr>
+
+
+            </c:forEach>
+
+        </table>
+        <a href="http://localhost:47032/projet_java/EtudiantController?action=add">ajouter</a>
+
     </body>
 </html>

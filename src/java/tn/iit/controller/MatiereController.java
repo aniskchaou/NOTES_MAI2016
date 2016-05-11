@@ -5,6 +5,8 @@
  */
 package tn.iit.controller;
 
+import iit.tn.entity.Enseignant;
+import iit.tn.entity.EnseignantDAO;
 import iit.tn.entity.EtudiantDAO;
 import iit.tn.entity.Matiere;
 import iit.tn.entity.MatiereDAO;
@@ -12,6 +14,8 @@ import iit.tn.entity.Matiere;
 import iit.tn.entity.MatiereDAO;
 import iit.tn.entity.Matiere;
 import iit.tn.entity.Niveau;
+import iit.tn.entity.NumCompostage;
+import iit.tn.entity.NumCompostageDAO;
 import iit.tn.mapping.HibernateUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -89,7 +93,10 @@ public class MatiereController extends HttpServlet {
             Matiere matiere = MatiereDAO.getMatiereById(request.getParameter("id"));
             HttpSession ses = request.getSession();
             ses.setAttribute("matiere_edit", matiere);
-
+            List<NumCompostage>    num_compostages=NumCompostageDAO.getAll();
+            ses.setAttribute("num_compostages", num_compostages);
+            List<Enseignant>   enseignants=EnseignantDAO.getAll();
+            ses.setAttribute("enseignants", enseignants);
             if (rd == null) {
                 response.sendError(404);
             }
@@ -117,7 +124,11 @@ public class MatiereController extends HttpServlet {
             if (rd == null) {
                 response.sendError(404);
             }
-
+                List<NumCompostage>    num_compostages=NumCompostageDAO.getAll();
+                HttpSession   ses=request.getSession();
+            ses.setAttribute("num_compostages", num_compostages);
+            List<Enseignant>   enseignants=EnseignantDAO.getAll();
+            ses.setAttribute("enseignants", enseignants);
             rd.forward(request, response);
 
         }
