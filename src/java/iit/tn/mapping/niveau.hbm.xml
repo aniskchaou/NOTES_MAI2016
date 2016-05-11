@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="iit.tn.entity.Niveau" table="APP.NIVEAU">
+   
+      <id  name="id" type="integer" column="ID">
+          <generator class="increment"/>
+          </id>
+         <property name="nom" type="string" column="NOM">
+          
+        </property>
+         <property name="nb_groupe" type="integer" column="NBGROUPE">
+          
+        </property>
+        
+    </class>
+</hibernate-mapping>

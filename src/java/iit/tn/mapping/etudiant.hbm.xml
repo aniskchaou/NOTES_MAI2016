@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="iit.tn.entity.Etudiant" table="APP.ETUDIANT">
+       <id  name="id" type="integer" column="ID">
+          <generator class="increment"/>
+          </id>
+ 
+         <property name="nom" type="string" column="NOM">
+          
+        </property>
+          <property name="prenom" type="string" column="PRENOM">
+          
+        </property>
+          <property name="numserie" type="string" column="NUMSERIE">
+          
+        </property>
+          <property name="tel" type="integer" column="TEL">
+          
+        </property>
+          <property name="id_groupe" type="integer" column="ID_GROUPE">
+          
+        </property>
+          <property name="id_matiere" type="integer" column="ID_MATIERE">
+          
+        </property>
+      
+      
+  </class>
+</hibernate-mapping>

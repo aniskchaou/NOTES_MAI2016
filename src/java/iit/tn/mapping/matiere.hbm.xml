@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="iit.tn.entity.Matiere" table="APP.MATIERE">
+                 <id  name="id" type="integer" column="ID">
+          <generator class="increment"/>
+          </id>
+         <property name="libelle" type="string" column="LIBELLE">
+          
+        </property>
+          <property name="volumec" type="string" column="VOLUMEC">
+          
+        </property>
+          <property name="volumetd" type="string" column="VOLUMETD">
+          
+        </property>
+        
+          <property name="volumetp" type="string" column="VOLUMETP">
+          
+        </property>
+        
+          <property name="coeficient" type="string" column="COEFFICIENT">
+          
+        </property>
+        
+        
+          <property name="credit" type="string" column="CREDIT">
+          
+        </property>
+        
+        
+        <property name="id_enseignant" type="integer" column="ID_ENSEIGNANT">
+          
+        </property>
+        
+        
+        <property name="id_compostage" type="integer" column="NUM_COMPOSTAGE">
+          
+        </property>
+        
+        
+      
+  </class>     
+</hibernate-mapping>
