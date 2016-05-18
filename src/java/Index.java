@@ -4,13 +4,20 @@
  * and open the template in the editor.
  */
 
+import iit.tn.entity.Enseignant;
+import iit.tn.entity.EnseignantDAO;
+import iit.tn.entity.Matiere;
+import iit.tn.entity.MatiereDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -66,7 +73,23 @@ public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RequestDispatcher rd;
+            
+            HttpSession ses = request.getSession();
+            String      connexion;
+        connexion = (String)ses.getAttribute("user_connection");
+         if(connexion==null)
+         {
+             rd = getServletContext().getRequestDispatcher("/login.jsp");
+         }else
+         {
+              rd = getServletContext().getRequestDispatcher("/index.jsp");
+         }
+            if (rd == null) {
+                response.sendError(404);
+            }
+
+            rd.forward(request, response);
     }
 
     /**
@@ -80,7 +103,21 @@ public class Index extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       Enseignant   log=EnseignantDAO.login(request.getParameter("matriculefiscale"));
+       RequestDispatcher rd;
+      if(log!=null)
+      {
+            rd = getServletContext().getRequestDispatcher("/index.jsp");
+            HttpSession ses = request.getSession();
+            ses.setAttribute("enseignant_connexion", log);
+            List<Matiere> matieres=MatiereDAO.getMatiereByEnseignant(String.valueOf(log.getId()));
+            ses.setAttribute("matieres", matieres);
+      }else
+      {
+            rd = getServletContext().getRequestDispatcher("/login.jsp");
+      }
+      
+       rd.forward(request, response);
     }
 
     /**

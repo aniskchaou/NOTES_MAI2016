@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="iit.tn.entity.Note" table="APP.NOTE">
+           <id  name="id" type="integer" column="ID">
+          <generator class="increment"/>
+          </id>
+        <property name="id_compostage" type="integer" column="ID_COMPOSTAGE">
+          
+        </property>
+        <property name="id_etudiant" type="integer" column="ID_ETUDIANT">
+          
+        </property>
+        <property name="id_matiere" type="integer" column="ID_MATIERE">
+          
+        </property>
+        <property name="notetp" type="integer" column="NOTETP">
+          
+        </property>
+    
+        <property name="nodeds" type="integer" column="NOTEDS">
+          
+        </property>
+    
+        <property name="noteexaman" type="integer" column="NOTEEXAMAN">
+          
+        </property>
+        <property name="notepresecielle" type="integer" column="NOTEPRESENCIELLE">
+          
+        </property>
+    
+    </class>
+  
+  
+  
+</hibernate-mapping>

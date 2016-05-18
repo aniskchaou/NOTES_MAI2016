@@ -19,9 +19,9 @@
         
 
             
-         coefficient:   ${sessionScope.matiere.coefficient}
+         coefficient:   ${sessionScope.matiere.coeficient}
          credit:   ${sessionScope.matiere.credit}
-        compostage:    ${sessionScope.matiere.num_compostage}
+        compostage:    ${sessionScope.matiere.id_compostage}
          libelle:    ${sessionScope.matiere.libelle}
           volume c:  ${sessionScope.matiere.volumec}
          volume td:    ${sessionScope.matiere.volumetd}

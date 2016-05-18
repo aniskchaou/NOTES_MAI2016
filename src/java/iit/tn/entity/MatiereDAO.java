@@ -16,83 +16,73 @@ import org.hibernate.criterion.Restrictions;
  * @author Hsin
  */
 public class MatiereDAO {
-      
-            public  static void add(String libelle,String volumec,String volumetd,String volumetp,String coefficient,String credit,String id_num_compostage,String  id_enseignant) {
-        Session session =null;
-        HibernateUtil helper=null ;
+
+    public static void add(String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, String id_num_compostage, String id_enseignant) {
+        Session session = null;
+        HibernateUtil helper = null;
         try {
-      session=helper.getSessionFactory().openSession();
-      session.beginTransaction();
-      
-      
-      Matiere m=new Matiere();
-      m.setLibelle(libelle);
-      m.setVolumec(volumec);
-      m.setVolumetd(volumetd);
-      m.setVolumetp(volumetp);
-      m.setCoeficient(coefficient);
-      m.setCredit(credit);
-      m.setId_compostage(Integer.parseInt(id_num_compostage));
-      m.setId_enseignant(Integer.parseInt(id_enseignant));
-            
-         
+            session = helper.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            Matiere m = new Matiere();
+            m.setLibelle(libelle);
+            m.setVolumec(volumec);
+            m.setVolumetd(volumetd);
+            m.setVolumetp(volumetp);
+            m.setCoeficient(coefficient);
+            m.setCredit(credit);
+            m.setId_compostage(Integer.parseInt(id_num_compostage));
+            m.setId_enseignant(Integer.parseInt(id_enseignant));
+
             session.save(m);
             session.getTransaction().commit();
-          session.flush();
+            session.flush();
             session.close();
         } catch (Exception e) {
-            System.err.println(e.getMessage());  
-        } 
+            System.err.println(e.getMessage());
+        }
     }
-            
-            
-                    public static  List getAll()
-    {
-         Session session=null;
-    HibernateUtil helper=null;
-        session=helper.getSessionFactory().openSession();
+
+    public static List getAll() {
+        Session session = null;
+        HibernateUtil helper = null;
+        session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         List<Matiere> liste = session.createCriteria(Matiere.class).list();
         return liste;
     }
-                    
-                    
-            public  static Matiere  getMatiereById(String  id) {
-                   Session session=null;
-    HibernateUtil helper=null;
-         session=helper.getSessionFactory().openSession();
+
+    public static Matiere getMatiereById(String id) {
+        Session session = null;
+        HibernateUtil helper = null;
+        session = helper.getSessionFactory().openSession();
         session.beginTransaction();
-    Criteria criteria = session.createCriteria(Matiere.class);
-criteria.add(Restrictions.eq("id", Integer.parseInt(id)));
-Matiere  member=(Matiere)criteria.uniqueResult();
-        
+        Criteria criteria = session.createCriteria(Matiere.class);
+        criteria.add(Restrictions.eq("id", Integer.parseInt(id)));
+        Matiere member = (Matiere) criteria.uniqueResult();
+
         return member;
     }
-            
-            
-      public static void update(String id,String libelle,String volumec,String volumetd,String volumetp,String coefficient,String credit,int id_num_compostage,int  id_enseignant)
-  {
-                         Session session=null;
-    HibernateUtil helper=null;
-       session=helper.getSessionFactory().openSession();
+
+    public static void update(String id, String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, int id_num_compostage, int id_enseignant) {
+        Session session = null;
+        HibernateUtil helper = null;
+        session = helper.getSessionFactory().openSession();
         session.beginTransaction();
-     Matiere h = (Matiere) session.get(Matiere.class, Integer.parseInt(id)); //Retrieving object which we want to update
-           h.setLibelle(libelle);
-      h.setVolumec(volumec);
-      h.setVolumetd(volumetd);
-      h.setVolumetp(volumetp);
-      h.setCoeficient(coefficient);
-      h.setCredit(credit);
-      h.setId_compostage(id_num_compostage);
-      h.setId_enseignant(id_enseignant);
- 
-      
-      session.update(h); //Update to the database table
+        Matiere h = (Matiere) session.get(Matiere.class, Integer.parseInt(id)); //Retrieving object which we want to update
+        h.setLibelle(libelle);
+        h.setVolumec(volumec);
+        h.setVolumetd(volumetd);
+        h.setVolumetp(volumetp);
+        h.setCoeficient(coefficient);
+        h.setCredit(credit);
+        h.setId_compostage(id_num_compostage);
+        h.setId_enseignant(id_enseignant);
+
+        session.update(h); //Update to the database table
         session.getTransaction().commit();
 
-  
-}  
-
+    }
 
     public static void delete(String id) {
         Session session = null;
@@ -104,5 +94,18 @@ Matiere  member=(Matiere)criteria.uniqueResult();
                 .add(Restrictions.eq("id", Integer.parseInt(id))).uniqueResult();
         session.delete(h);
         session.getTransaction().commit();
+    }
+    
+    public static List getMatiereByEnseignant(String id)
+    {
+        Session session = null;
+        HibernateUtil helper = null;
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Matiere.class);
+        criteria.add(Restrictions.eq("id_enseignant", Integer.parseInt(id)));
+        List<Matiere> member =  criteria.list();
+
+        return member;
     }
 }

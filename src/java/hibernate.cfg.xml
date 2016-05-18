@@ -13,5 +13,6 @@
     <mapping resource="iit/tn/mapping/matiere.hbm.xml"/>
     <mapping resource="iit/tn/mapping/enseignant.hbm.xml"/>
     <mapping resource="iit/tn/mapping/etudiant.hbm.xml"/>
+    <mapping resource="iit/tn/mapping/note.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -83,4 +83,7 @@ public class GroupeDAO {
         session.delete(g);
         session.getTransaction().commit();
     }
+    
+    
+        
 }

@@ -3,6 +3,10 @@
     Created on : May 2, 2016, 2:08:44 PM
     Author     : Hsin
 --%>
+<%@page import="iit.tn.entity.MatiereDAO"%>
+<%@page import="iit.tn.entity.Matiere"%>
+<%@page import="iit.tn.entity.Groupe"%>
+<%@page import="iit.tn.entity.GroupeDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="iit.tn.entity.EnseignantDAO"%>
 <%@page import="tn.iit.controller.EnseignantController"%>
@@ -36,9 +40,10 @@
                   <td><c:out  value="${item.prenom}"/></td>
                  <td><c:out  value="${item.adresse}"/></td>
                  <td><c:out  value="${item.matricule_fiscale}"/></td>
-                 <td><c:out  value="${item.tel}"/></td>
-                      <td><c:out  value="${item.id_groupe}"/></td>
-                           <td><c:out  value="${item.id_matiere}"/></td>
+                 <td><c:out  value="${item.tel}"/></td>               
+                 <td><c:out  value="${item.id_matiere}"/></td>  
+                 <td><c:out  value="${item.id_groupe}"/></td>
+                    
                  
                  
                            <td><a  href="http://localhost:47032/projet_java/EnseignantController?action=show&id=${item.id}"> voir</a></td>

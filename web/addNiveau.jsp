@@ -14,7 +14,9 @@
     <body>
       
         <form action="http://localhost:47032/projet_java/NiveauController" method="post">
+            nom de niveau
             <input type="text"  name="nom"/>
+            nombre de groupe
                    <input type="text" name="nb_groupe"/>
                    <input type="hidden" name="action" value="ajouter_niveau"/>
                    <input type="submit" value="ajouter"/>

@@ -19,13 +19,13 @@
         <h1>Hello World!</h1>
         <form action="http://localhost:47032/projet_java/GroupeController" method="post">
         nom
-        <input  type="text"  name="nom" value="${sessionScope.groupe_edit.nom}"  />
+        <input  type="text"  name="nom"   />
         <br>
         <input  type="hidden" value="ajouter_groupe" name="action"/>
         niveau
         <select name="id_niveau">
                <c:forEach items="${sessionScope.niveaux}" var="item">
-                <option   value=''<c:out  value="${item.id}"/>"><c:out  value="${item.nom}"/></option>
+                <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.nom}"/></option>
                 </c:forEach>
         </select>
       

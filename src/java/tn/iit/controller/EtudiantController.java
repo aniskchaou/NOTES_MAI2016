@@ -62,6 +62,7 @@ public class EtudiantController extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/listeEtudiant.jsp");
             List<Etudiant> etudiants = EtudiantDAO.getAll();
             HttpSession ses = request.getSession();
+          
             ses.setAttribute("etudiants", etudiants);
             List<Groupe>  groupes=GroupeDAO.getAll();
             ses.setAttribute("groupes", groupes);
