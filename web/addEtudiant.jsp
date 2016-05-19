@@ -12,6 +12,7 @@
 <%@page import="java.util.List"%>
 <%@page import="tn.iit.controller.MatiereController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include  file="/menu.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>

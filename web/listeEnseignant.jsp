@@ -15,17 +15,24 @@
 <%@page import="tn.iit.controller.NiveauController"%>
 <%@page import="java.util.List"%>
 <%@page import="java.security.acl.Group"%>
+<%@include  file="/menu.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link  href="css/bootstrap.css"  rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Administration</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>List Enseignant</h3> </div>
+                <div class="panel-body">
+
                 
-                 <table>
+                 <table class="table">
              <tr><td>id</td><td>nombre groupe</td><td>nom</td><td>prenom</td><td>adresse</td><td>matricule fiscale</td><td>tel</td><td>groupe</td><td>matiere</td></tr>
         
               <c:forEach items="${sessionScope.enseignants}" var="item">
@@ -46,8 +53,8 @@
                     
                  
                  
-                           <td><a  href="http://localhost:47032/projet_java/EnseignantController?action=show&id=${item.id}"> voir</a></td>
-                           <td><a href="http://localhost:47032/projet_java/EnseignantController?action=edit&id=${item.id}">modifier</a></td>
+                           <td><a  href="http://localhost:47032/projet_java/EnseignantController?action=show&id=${item.id}" class="btn btn-success"> voir</a></td>
+                           <td><a href="http://localhost:47032/projet_java/EnseignantController?action=edit&id=${item.id}" class="btn btn-warning">modifier</a></td>
                           
               </tr>
                   
@@ -58,5 +65,8 @@
             </c:forEach>
             </table>
            
+  </div>
+            </div>
+        </div>
     </body>
 </html>

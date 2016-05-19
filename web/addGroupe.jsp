@@ -9,27 +9,43 @@
 <%@page import="java.util.List"%>
 <%@page import="iit.tn.entity.Niveau"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include  file="/menu.jsp" %>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link  href="css/bootstrap.css"  rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Administration</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <form action="http://localhost:47032/projet_java/GroupeController" method="post">
-        nom
-        <input  type="text"  name="nom"   />
-        <br>
-        <input  type="hidden" value="ajouter_groupe" name="action"/>
-        niveau
-        <select name="id_niveau">
-               <c:forEach items="${sessionScope.niveaux}" var="item">
-                <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.nom}"/></option>
-                </c:forEach>
-        </select>
-      
-        <input type="submit" value="ajouter"/>
-        </form>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Ajouter Groupe</h3> </div>
+                <div class="panel-body">
+                    <form action="http://localhost:47032/projet_java/GroupeController" method="post">
+
+                        <div class="form-group">
+                            nom groupe:
+                            <input  type="text"  name="nom" class="form-control"   />
+                        </div>
+
+
+                        <input  type="hidden" value="ajouter_groupe" name="action"/>
+
+                        <div class="form-group">
+                            niveau
+                            <select name="id_niveau">
+                                <c:forEach items="${sessionScope.niveaux}" var="item">
+                                    <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.nom}"/></option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <input type="submit" value="ajouter"/>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

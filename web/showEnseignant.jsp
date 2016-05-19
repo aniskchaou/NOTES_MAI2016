@@ -13,19 +13,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link  href="css/bootstrap.css"  rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Administration</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
- 
-        
-        nom:     <c:out  value="${sessionScope.enseignant.nom}"/>
-    prenom:              <c:out  value="${sessionScope.enseignant.prenom}"/>
-    adresse:              <c:out  value="${sessionScope.enseignant.adresse}"/>
-     matricule fiscale:             <c:out  value="${sessionScope.enseignant.matricule_fiscale}"/>
-        tel:          <c:out  value="${sessionScope.enseignant.tel}"/>
-        groupe:          <c:out  value="${sessionScope.enseignant.id_groupe}"/>
-        matiere:          <c:out  value="${sessionScope.enseignant.id_matiere}"/>
-   
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Voir Enseignant</h3> </div>
+                <div class="panel-body">
+
+
+                    nom:     <c:out  value="${sessionScope.enseignant.nom}"/><br>
+                    prenom:              <c:out  value="${sessionScope.enseignant.prenom}"/><br>
+                    adresse:              <c:out  value="${sessionScope.enseignant.adresse}"/><br>
+                    matricule fiscale:             <c:out  value="${sessionScope.enseignant.matricule_fiscale}"/><br>
+                    tel:          <c:out  value="${sessionScope.enseignant.tel}"/><br>
+                    groupe:          <c:out  value="${sessionScope.enseignant.id_groupe}"/><br>
+                    matiere:          <c:out  value="${sessionScope.enseignant.id_matiere}"/><br>
+
+                </div>
+            </div>
+        </div>
     </body>
 </html>

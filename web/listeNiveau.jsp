@@ -8,17 +8,23 @@
 <%@page import="tn.iit.controller.NiveauController"%>
 <%@page import="java.util.List"%>
 <%@page import="iit.tn.entity.Niveau"%>
+<%@include  file="/menu.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link  href="css/bootstrap.css"  rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Administration</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Liste Niveau</h3> </div>
+                <div class="panel-body">
         
-                 <table>
+                 <table class="table">
              <tr><td>id</td><td>nombre groupe</td><td>nom</td></tr>
              <c:forEach items="${sessionScope.niveaux}" var="item">
 
@@ -28,9 +34,9 @@
                   <td>${item.nb_groupe}</td>
                   <td> ${item.nom}</td>
                  
-                  <td><a  href="http://localhost:47032/projet_java/NiveauController?action=show&id=${item.id}">voir</a></td>
-                  <td><a   href="http://localhost:47032/projet_java/NiveauController?action=edit&id=${item.id}">modifier</a></td>
-                  <td><a   href="http://localhost:47032/projet_java/NiveauController?action=delete&id=${item.id}">supprimer</a></td>
+                  <td><a class="btn btn-success"  href="http://localhost:47032/projet_java/NiveauController?action=show&id=${item.id}">voir</a></td>
+                  <td><a  class="btn btn-warning"  href="http://localhost:47032/projet_java/NiveauController?action=edit&id=${item.id}">modifier</a></td>
+                  <td><a  class="btn btn-danger"  href="http://localhost:47032/projet_java/NiveauController?action=delete&id=${item.id}">supprimer</a></td>
               </tr>
                   
               
@@ -38,6 +44,9 @@
          
             </c:forEach>
             </table>
-            <a href="http://localhost:47032/projet_java/NiveauController?action=add" >ajouter</a>
+            <a class="btn btn-default" href="http://localhost:47032/projet_java/NiveauController?action=add" >ajouter</a>
+  </div>
+            </div>
+        </div>
     </body>
 </html>

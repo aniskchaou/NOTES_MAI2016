@@ -7,17 +7,27 @@
 <%@page import="iit.tn.entity.NiveauDAO"%>
 <%@page import="iit.tn.entity.Niveau"%>
 <%@page import="tn.iit.controller.NiveauController"%>
+<%@include  file="/menu.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link  href="css/bootstrap.css"  rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Administration</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Voir Niveau</h3> </div>
+                <div class="panel-body">
 
-            nombre de groupe: <c:out  value="${sessionScope.niveau.nb_groupe}"/>
-            nom: <c:out  value="${sessionScope.niveau.nom}"/>
+            nombre de groupe: <c:out  value="${sessionScope.niveau.nb_groupe}"/><br>
+            nom: <c:out  value="${sessionScope.niveau.nom}"/><br>
+  </div>
+            </div>
+        </div>
     </body>
 </html>
