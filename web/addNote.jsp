@@ -32,10 +32,7 @@
                             <input type="text" name="noteds" class="form-control"/>
 
                         </div>
-                        <div class="form-group">
-                            note examen :
-                            <input type="text" name="noteexaman" class="form-control"/>
-                        </div>
+                      
 
                         <div class="form-group">
                             note presencielle:
@@ -59,15 +56,9 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <select name="id_compostage" class="form-control">
-                                <c:forEach items="${sessionScope.numcompostages}" var="item">
-                                    <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.num_compostage}"/></option>
-                                </c:forEach>
-                            </select>
-                        </div>
+                     
                         <input type="hidden" name="action" value="create"/>
-                        <input type="submit" value="ajouter"/>
+                        <input type="submit" value="valider"/>
                     </form>
                 </div>
             </div>

@@ -20,6 +20,7 @@ import iit.tn.entity.NumCompostageDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Random;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -116,14 +117,17 @@ public class NoteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("action").equals("create")) {
-            
+            int max=10000;
+            int min=1;
+             Random rand = new Random();
+             int randomNum = rand.nextInt((max - min) + 1) + min;
             NoteDAO. add( Integer.parseInt(request.getParameter("id_matiere")),
                    Integer.parseInt(request.getParameter("id_etudiant")) ,
                    Integer.parseInt(request.getParameter("notetp")) , 
                   Integer.parseInt(request.getParameter("noteds"))  ,
-                  Integer.parseInt(request.getParameter("noteexaman"))  , 
+                  0 , 
                   Integer.parseInt( request.getParameter("notepresencielle")) ,
-                 Integer.parseInt(request.getParameter("id_compostage"))   );
+                  randomNum  );
 
             
             RequestDispatcher rd;
