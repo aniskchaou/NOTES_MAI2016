@@ -31,31 +31,31 @@
 
 
                     <form action="http://localhost:47032/projet_java/EtudiantController" method="post">
+                       
                         <div class="form-group">
-
                             nom
-                            <input type="text" name="nom"  value="${sessionScope.etudiant.nom}" />
+                            <input  data-validation="length" data-validation-length="min4" type="text" name="nom"  value="${sessionScope.etudiant.nom}" class="form-control" />
                         </div>      
                         <div class="form-group">
                             prenom
-                            <input type="text" name="prenom"   value="${sessionScope.etudiant.prenom}" />
+                            <input  data-validation="length" data-validation-length="min4" type="text" name="prenom"   value="${sessionScope.etudiant.prenom}" class="form-control" />
                         </div>       
                         <div class="form-group">   
                             adresse
-                            <input type="text" name="tel"        value="${sessionScope.etudiant.tel}"    />
+                            <input data-validation="length" data-validation-length="min3" type="text" name="tel"        value="${sessionScope.etudiant.tel}"  class="form-control"  />
                         </div>
                         <input  type="hidden" name="action" value="update"/>
                         <div class="form-group">    
                             num serie
-                            <input type="text" name="numserie"     value="${sessionScope.etudiant.numserie}"    />
+                            <input type="text" data-validation="number" name="numserie"     value="${sessionScope.etudiant.numserie}"  class="form-control"  />
                         </div>    
                         <div class="form-group">
                             tel
-                            <input type="text" name="tel"  value="${sessionScope.etudiant.tel}"   />
+                            <input type="text" data-validation="number"  name="tel"  value="${sessionScope.etudiant.tel}"  class="form-control" />
                         </div>       
                         <div class="form-group">  
                             groupe
-                            <select name="id_groupe">
+                            <select name="id_groupe" class="form-control">
                                 <c:forEach items="${sessionScope.groupes}" var="item">
                                     <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.nom}"/></option>
                                 </c:forEach>
@@ -64,7 +64,7 @@
                         </div>       
                         <div class="form-group">         
                             matiere
-                            <select name="id_matiere">
+                            <select name="id_matiere" class="form-control">
                                 <c:forEach items="${sessionScope.matieres}" var="item">
                                     <option   value="<c:out  value="${item.id}"/>"><c:out  value="${item.libelle}"/></option>
                                 </c:forEach>        
@@ -80,6 +80,16 @@
                         <input type="submit" value="ajouter"/>
 
                     </form>
+                        
+                            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+</script>
                 </div>
             </div>
         </div>

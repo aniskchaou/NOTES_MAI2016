@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="matricule fiscale">matricule fiscale</label>
-                    <input type="password" name="matriculefiscale"/>
+                    <input data-validation="length" data-validation-length="min4" type="password" name="matriculefiscale"/>
 
                 </div>
 
@@ -40,6 +40,15 @@
 
 
             </form>
+                                   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+</script>
               </div>
                 </div>
 

@@ -99,9 +99,49 @@ public class NoteController extends HttpServlet {
             HttpSession ses = request.getSession();
            ses.setAttribute("etudiants", etudiants);
             ses.setAttribute("matieres", matieres);
-            ses.setAttribute("numcompostages", numcompostages);
+            
             rd.forward(request, response);
 
+        }else  if (request.getParameter("action").equals("showall")){
+                     RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/listNoteComplet.jsp");
+         List<Note> notes = NoteDAO.getAll();
+              HttpSession ses = request.getSession();
+                ses.setAttribute("notes", notes);
+          
+    
+ 
+            if (rd == null) {
+                response.sendError(404);
+            }
+
+            rd.forward(request, response);
+        }else if (request.getParameter("action").equals("imprimer")){
+          
+       
+              List<Note> notess = NoteDAO.getAll();
+                HttpSession ses = request.getSession();
+                ses.setAttribute("notes", notess);
+               RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/imprimerNote.jsp");
+            if (rd == null) {
+                response.sendError(404);
+            }
+           
+      rd.forward(request, response);
+        
+        }else if(request.getParameter("action").equals("delete"))
+        {
+            NoteDAO.delete(request.getParameter("id"));
+               RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/listeNote.jsp");
+            if (rd == null) {
+                response.sendError(404);
+            }
+           
+             rd.forward(request, response);
+            
+            
         }
     }
 
@@ -125,20 +165,35 @@ public class NoteController extends HttpServlet {
                    Integer.parseInt(request.getParameter("id_etudiant")) ,
                    Integer.parseInt(request.getParameter("notetp")) , 
                   Integer.parseInt(request.getParameter("noteds"))  ,
-                  0 , 
                   Integer.parseInt( request.getParameter("notepresencielle")) ,
                   randomNum  );
 
             
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/listeNote.jsp");
+            
+           List<Note> notess = NoteDAO.getAll();
+                HttpSession ses = request.getSession();
+                ses.setAttribute("note", notess);
+               RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/addNoteExamen.jsp");
             if (rd == null) {
                 response.sendError(404);
             }
-            List<Niveau> niveaux = NiveauDAO.getAll();
-            HttpSession ses = request.getSession();
-            ses.setAttribute("niveaux", niveaux);
-            rd.forward(request, response);
+           
+      rd.forward(request, response);
+        }else if (request.getParameter("action").equals("setnoteexaman")){
+           NoteDAO.update(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("id_compostage") ),Integer.parseInt(request.getParameter("noteexaman")));
+       
+              List<Note> notess = NoteDAO.getAll();
+                HttpSession ses = request.getSession();
+                ses.setAttribute("notes", notess);
+               RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/addNoteExamen.jsp");
+            if (rd == null) {
+                response.sendError(404);
+            }
+           
+      rd.forward(request, response);
+        
         }
     }
 

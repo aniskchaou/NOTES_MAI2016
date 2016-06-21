@@ -54,7 +54,14 @@
                  
                  
                            <td><a  href="http://localhost:47032/projet_java/EnseignantController?action=show&id=${item.id}" class="btn btn-success"> voir</a></td>
-                           <td><a href="http://localhost:47032/projet_java/EnseignantController?action=edit&id=${item.id}" class="btn btn-warning">modifier</a></td>
+                            
+                           <td>
+                               <c:if  test="${item.id==sessionScope.enseignant_connexion.id}">
+                                   
+                                   
+                               <a href="http://localhost:47032/projet_java/EnseignantController?action=edit&id=${item.id}" class="btn btn-warning">modifier</a>
+                               </c:if>
+                           </td>
                           
               </tr>
                   

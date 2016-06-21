@@ -24,19 +24,19 @@
 
                         <div class="form-group">
                             notetp
-                            <input type="text"  name="notetp" class="form-control"/>
+                            <input data-validation="number" data-validation-allowing="range[1;20]" type="text"  name="notetp" class="form-control"/>
                         </div>
 
                         <div class="form-group">
                             noteds:
-                            <input type="text" name="noteds" class="form-control"/>
+                            <input data-validation="number" data-validation-allowing="range[1;20]" type="text" name="noteds" class="form-control"/>
 
                         </div>
                       
 
                         <div class="form-group">
                             note presencielle:
-                            <input type="text" name="notepresencielle" class="form-control"/>
+                            <input  data-validation="number" data-validation-allowing="range[1;20]"  type="text" name="notepresencielle" class="form-control"/>
                         </div>
 
 
@@ -60,6 +60,18 @@
                         <input type="hidden" name="action" value="create"/>
                         <input type="submit" value="valider"/>
                     </form>
+                    
+                    
+                         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+  
+  </script>
                 </div>
             </div>
         </div>

@@ -35,20 +35,20 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">nom</label>   
                             
-                            <input  class="form-control" type="text" name="nom"/>
+                            <input data-validation="length" data-validation-length="min4"  class="form-control" type="text" name="nom"/>
                         </div>
 
                             <div  class="form-group">
-                                <label for="exampleInputEmail1">prenom</label>     
+                                <label  for="exampleInputEmail1">prenom</label>     
                                 
-                                <input  class="form-control" type="text" name="prenom"/>
+                                <input  data-validation="length" data-validation-length="min4"   class="form-control" type="text" name="prenom"/>
                             </div>
 
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">adresse</label>   
                                     
-                                    <input class="form-control" type="text" name="adresse"/>
+                                    <input  data-validation="length" data-validation-length="min3"  class="form-control" type="text" name="adresse"/>
 
                                     <input type="hidden" name="action" value="create"/>
                                 </div>
@@ -56,13 +56,13 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">num serie</label>  
                                         
-                                        <input class="form-control" type="text" name="numserie"/>
+                                        <input  type="text" data-validation="number" class="form-control" type="text" name="numserie"/>
                                     </div>
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">tel</label>    
                                             
-                                            <input class="form-control"  type="text" name="tel"/>
+                                            <input  type="text" data-validation="number"  class="form-control"  type="text" name="tel"/>
                                         </div>
 
                                             <div class="form-group">
@@ -93,5 +93,15 @@
                                             </div>
                                         </div>
                                     </div>
+        
+                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+</script>
                                     </body>
                                     </html>

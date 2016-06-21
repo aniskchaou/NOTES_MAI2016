@@ -33,7 +33,7 @@
 
                         %>
                         <table class="table">
-                            <tr><td>id</td><td>etudiant</td><td>matiere</td> <td>notetp</td><td>noteds</td><td>note presencielle</td><td></td><td></td><td></td></tr>
+                            <tr><td>id</td><td>etudiant</td><td>matiere</td> <td>notetp</td><td>noteds</td><td>note presencielle</td></tr>
 
                             <%  for (i = 0; i < notess.size(); i++) {
                             %>
@@ -51,12 +51,11 @@
 
                                 <td><%= notess.get(i).getNodeds()%></td>
 
-                            
+                             
 
                                 <td><%= notess.get(i).getNotepresecielle()%></td>
 
-                        
-                                <td><a class="btn btn-danger"  <%   out.print("href=http://localhost:47032/projet_java/NoteController?action=delete&id=" + notess.get(i).getId());%>>supprimer</a></td>
+                                
                             </tr>
 
 
@@ -65,8 +64,7 @@
                             <% }%>
                         </table>
 
-                        <a class="btn btn-default"  href="http://localhost:47032/projet_java/NoteController?action=add" >Saisir Note</a>
-                           <a class="btn btn-default"  href="http://localhost:47032/projet_java/NoteController?action=showall" >voir resume</a>
+                        <a class="btn btn-default"  href="http://localhost:47032/projet_java/NoteController?action=imprimer" >imprimer</a>
                 </div>
             </div>
         </div>

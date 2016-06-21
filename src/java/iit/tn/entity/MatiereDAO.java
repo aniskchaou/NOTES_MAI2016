@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class MatiereDAO {
 
-    public static void add(String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, String id_num_compostage, String id_enseignant) {
+    public static void add(String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, String id_enseignant) {
         Session session = null;
         HibernateUtil helper = null;
         try {
@@ -31,7 +31,7 @@ public class MatiereDAO {
             m.setVolumetp(volumetp);
             m.setCoeficient(coefficient);
             m.setCredit(credit);
-            m.setId_compostage(Integer.parseInt(id_num_compostage));
+            m.setId_compostage(0);
             m.setId_enseignant(Integer.parseInt(id_enseignant));
 
             session.save(m);
@@ -64,7 +64,7 @@ public class MatiereDAO {
         return member;
     }
 
-    public static void update(String id, String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, int id_num_compostage, int id_enseignant) {
+    public static void update(String id, String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, int id_enseignant) {
         Session session = null;
         HibernateUtil helper = null;
         session = helper.getSessionFactory().openSession();
@@ -76,7 +76,7 @@ public class MatiereDAO {
         h.setVolumetp(volumetp);
         h.setCoeficient(coefficient);
         h.setCredit(credit);
-        h.setId_compostage(id_num_compostage);
+        h.setId_compostage(0);
         h.setId_enseignant(id_enseignant);
 
         session.update(h); //Update to the database table

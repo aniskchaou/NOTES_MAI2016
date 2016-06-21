@@ -24,12 +24,12 @@
 
                         <div class="form-group">
                             nom de niveau
-                            <input type="text"  name="nom" class="form-control"/>
+                            <input  data-validation="length" data-validation-length="max10" type="text"  name="nom" class="form-control"/>
                         </div>
 
                         <div class="form-group">
                             nombre de groupe
-                            <input type="text" name="nb_groupe" class="form-control"/>
+                            <input data-validation="length" data-validation-length="max10"  type="text" name="nb_groupe" class="form-control"/>
                         </div>            
 
                         <input type="hidden" name="action" value="ajouter_niveau"/>
@@ -38,6 +38,15 @@
                         <input type="submit" value="ajouter"/>
                     </form>
 
+                         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+  </script>
                 </div>
             </div>
         </div>

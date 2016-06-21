@@ -36,40 +36,30 @@
 
                         <div class="form-group">    
                             libelle
-                            <input name="libelle"   value="${sessionScope.matiere_edit.libelle}"  class="form-control"/>
+                            <input name="libelle"   data-validation="length" data-validation-length="min07"  value="${sessionScope.matiere_edit.libelle}"  class="form-control"/>
                         </div>
 
                         <div class="form-group">     
                             volume c
-                            <input  name="volumec"   value="${sessionScope.matiere_edit.volumec}"class="form-control" />
+                            <input  name="volumec"  data-validation="number" data-validation-allowing="range[1;30]"  value="${sessionScope.matiere_edit.volumec}"class="form-control" />
                         </div>
                         <div class="form-group">       
                             volume td
-                            <input  name="volumetd"   value="${sessionScope.matiere_edit.volumetd}"class="form-control"  />
+                            <input  name="volumetd"  data-validation="number" data-validation-allowing="range[1;30]" value="${sessionScope.matiere_edit.volumetd}"class="form-control"  />
                         </div>
                         <div class="form-group">        
                             volume tp
-                            <input  name="volumetp"   value="${sessionScope.matiere_edit.volumetp} "class="form-control" />
+                            <input  name="volumetp"  data-validation="number" data-validation-allowing="range[1;30]" value="${sessionScope.matiere_edit.volumetp} "class="form-control" />
                         </div>
                         <div class="form-group">       
                             coefficient
-                            <input  name="coef"   value="${sessionScope.matiere_edit.coeficient}"class="form-control" />
+                            <input  name="coef"   data-validation="number" data-validation-allowing="range[1;10]" value="${sessionScope.matiere_edit.coeficient}"class="form-control" />
                         </div>
                         <div class="form-group">       
                             credit
-                            <input  name="credit"   value="${sessionScope.matiere_edit.credit} " class="form-control"/>
+                            <input  name="credit" data-validation="number" data-validation-allowing="range[1;10]"   value="${sessionScope.matiere_edit.credit} " class="form-control"/>
                         </div>
-                        <div class="form-group">       
-                            Num compostage
-                            <select name="id_num_compostage" class="form-control">
-                                <c:forEach items="${sessionScope.num_compostages}" var="item">
-
-                                    <option value="${item.id}">${item.num_compostage}</option>
-
-                                </c:forEach>
-
-                            </select>
-                        </div>   
+             
 
                         <div class="form-group">      
                             <select name="id_enseignant" class="form-control">
@@ -86,7 +76,15 @@
                         <input   name="action" value="update" type="hidden"/>
                         <input  type="submit" value="ajouter"/>
                     </form>
-
+              <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+</script>
                 </div>
             </div>
         </div>

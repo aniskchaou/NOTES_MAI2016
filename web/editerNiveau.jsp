@@ -27,11 +27,11 @@
                  
                     
                     <div class="form-group">
-                    <input type="text"  name="nom"  class="form-control" value="${sessionScope.niveau.nom}"/>
+                    <input data-validation="length" data-validation-length="max10" type="text"  name="nom"  class="form-control" value="${sessionScope.niveau.nom}"/>
                     </div>
                     
                     <div class="form-group">
-                    <input type="text" name="nb_groupe"  class="form-control"  value="${sessionScope.niveau.nb_groupe}" />
+                    <input data-validation="number" data-validation-allowing="range[1;10]"  type="text" name="nb_groupe"  class="form-control"  value="${sessionScope.niveau.nb_groupe}" />
                     </div>
                    <div class="form-group">
                    <input type="hidden" name="action" class="form-control"  value="update"/>
@@ -42,7 +42,15 @@
                    
                    <input type="submit" value="ajouter"/>
         </form>
-        
+                                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+  </script>
    </div>
             </div>
         </div>

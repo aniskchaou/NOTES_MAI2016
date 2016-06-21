@@ -30,40 +30,31 @@
                     
                         <div class="form-group">
                         libelle
-                        <input name="libelle" class="form-control"/>
+                        <input  data-validation="length" data-validation-length="min07"   name="libelle" class="form-control"/>
                         </div>
                         <div class="form-group" class="form-control">
                         volume c
-                        <input  name="volumec" class="form-control"/>
+                        <input  data-validation="number" data-validation-allowing="range[1;30]"  name="volumec" class="form-control"/>
                         </div>
                         <div class="form-group">
                         volume td
-                        <input  name="volumetd" class="form-control"/>
+                        <input   data-validation="number" data-validation-allowing="range[1;30]"  name="volumetd" class="form-control"/>
                         </div>
                         <div class="form-group">
                         volume tp
-                        <input  name="volumetp" class="form-control"/>
+                        <input  data-validation="number" data-validation-allowing="range[1;30]"   name="volumetp" class="form-control"/>
                         </div>
                         <div class="form-group">
                         coefficient
-                        <input  name="coeffiecient" class="form-control"/>
+                        <input  data-validation="number" data-validation-allowing="range[1;5]"  name="coeffiecient" class="form-control"/>
                         </div>
                         <div class="form-group">
                         credit
-                        <input  name="credit" class="form-control"/>
+                        <input   data-validation="number" data-validation-allowing="range[1;10]"  name="credit" class="form-control"/>
                         </div>
                         
-                        <div class="form-group">
-                        Num compostage
-                        <select name="num_compostage" class="form-control">
-                            <c:forEach items="${sessionScope.num_compostages}" var="item">
-
-                                <option value="${item.id}">${item.num_compostage}</option>
-
-                            </c:forEach>
-                        </select>
-                        </div>
-                      
+               
+                      Enseignant 
                         <div class="form-group">
                         <select name="id_enseignant" class="form-control">
                             <c:forEach items="${sessionScope.enseignants}" var="item">
@@ -80,7 +71,15 @@
                         
                         <input  type="submit" value="ajouter"/>
                     </form>
-
+                         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.23/jquery.form-validator.min.js">
+         
+         </script>
+         <script>
+  $.validate({
+    lang: 'fr'
+  });
+</script>
                 </div>
             </div>
         </div>

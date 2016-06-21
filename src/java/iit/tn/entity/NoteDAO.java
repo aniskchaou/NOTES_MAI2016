@@ -17,7 +17,8 @@ import org.hibernate.criterion.Restrictions;
  */
 public class NoteDAO {
 
-    public static void add(    int id_matiere,int id_etudiant,int nodetp,int nodeds,int noteexaman,int notepresecielle,int id_compostage) {
+    
+    public static void add(    int id_matiere,int id_etudiant,int nodetp,int nodeds,int notepresecielle,int id_compostage) {
         Session session = null;
         HibernateUtil helper = null;
         try {
@@ -25,12 +26,13 @@ public class NoteDAO {
             session.beginTransaction();
 
            Note n=new Note();
+           
            n.setId_etudiant(id_etudiant);
            n.setId_compostage(id_compostage);
            n.setId_matiere(id_matiere);
            n.setNotetp(nodetp);
            n.setNodeds(nodeds);
-           n.setNoteexaman(noteexaman);
+           
            n.setNotepresecielle(notepresecielle);
 
             session.save(n);
@@ -52,26 +54,36 @@ public class NoteDAO {
     }
 
   
-/*
-    public static void update(String id, String libelle, String volumec, String volumetd, String volumetp, String coefficient, String credit, int id_num_compostage, int id_enseignant) {
+
+    public static void update(int id,int id_num_compostage, int noteexamen) {
         Session session = null;
         HibernateUtil helper = null;
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
-        Matiere h = (Matiere) session.get(Matiere.class, Integer.parseInt(id)); //Retrieving object which we want to update
-        h.setLibelle(libelle);
-        h.setVolumec(volumec);
-        h.setVolumetd(volumetd);
-        h.setVolumetp(volumetp);
-        h.setCoeficient(coefficient);
-        h.setCredit(credit);
-        h.setId_compostage(id_num_compostage);
-        h.setId_enseignant(id_enseignant);
+        Note h = (Note) session.get(Note.class,id); //Retrieving object which we want to update
+        h.setNoteexaman(noteexamen);
+   
+      
 
         session.update(h); //Update to the database table
         session.getTransaction().commit();
 
     }
-*/
+    
+    
+    
+    
+       public static void delete(String id) {
+        Session session = null;
+        HibernateUtil helper = null;
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Note h = (Note) session.createCriteria(Note.class)
+                .add(Restrictions.eq("id", Integer.parseInt(id))).uniqueResult();
+        session.delete(h);
+        session.getTransaction().commit();
+    }
+
    
 }

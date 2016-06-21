@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<div align="right"><b >bienvenue  ${sessionScope.enseignant_connexion.nom}  ${sessionScope.enseignant_connexion.prenom}  </b></div>
 <ul class="nav nav-pills" style="margin: auto; width: 60%;padding: 10px;">
   <li role="presentation" class="active"><a   href="http://localhost:47032/projet_java/Index?action=list">Acceuil</a></li>
   <li role="presentation"><a    href="http://localhost:47032/projet_java/MatiereController?action=list">Matiere</a></li>

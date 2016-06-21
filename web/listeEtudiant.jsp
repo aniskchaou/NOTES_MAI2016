@@ -20,7 +20,7 @@
                 <div class="panel-heading"><h3>Liste Etudiant</h3> </div>
                 <div class="panel-body">
         <table class="table">
-            <tr><td>id</td><td>nom</td><td>prenom</td><td>tel</td><td>groupe</td><td>matiere</td></tr>
+            <tr><td>id</td><td>nom</td><td>prenom</td><td>tel</td><td></td><td></td><td></td></tr>
             <c:forEach items="${sessionScope.etudiants}" var="item">
 
 
@@ -31,14 +31,14 @@
 
 
                 <tr>
-                    <td>
+                    
                     <td> ${item.id}</td>
                     <td>${item.nom}</td>
                     <td> ${item.prenom}</td>
                     <td> ${item.tel}</td>
-                    <td> ${item.id_groupe}</td>
+                    
 
-                    <td> ${item.id_matiere}</td>
+                    
 
 
                     <td><a class="btn btn-success" href="http://localhost:47032/projet_java/EtudiantController?action=show&id=${item.id}">voir</a></td>

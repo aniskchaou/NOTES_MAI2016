@@ -151,7 +151,7 @@ public class MatiereController extends HttpServlet {
         
          if (request.getParameter("action").equals("update")) {
 
-            MatiereDAO.update(request.getParameter("id") ,request.getParameter("libelle") , request.getParameter("volumec") , request.getParameter("volumetd") , request.getParameter("volumetp") , request.getParameter("coef") , request.getParameter("credit") ,Integer.parseInt(request.getParameter("id_num_compostage"))  ,Integer.parseInt(request.getParameter("id_enseignant")));
+            MatiereDAO.update(request.getParameter("id") ,request.getParameter("libelle") , request.getParameter("volumec") , request.getParameter("volumetd") , request.getParameter("volumetp") , request.getParameter("coef") , request.getParameter("credit") ,Integer.parseInt(request.getParameter("id_enseignant")));
             
             
             RequestDispatcher rd;
@@ -166,7 +166,7 @@ public class MatiereController extends HttpServlet {
             rd.forward(request, response);
 
         } else if (request.getParameter("action").equals("ajouter_matiere")) {
-            MatiereDAO. add(request.getParameter("libelle") , request.getParameter("volumec") , request.getParameter("volumetd") , request.getParameter("volumetp") , request.getParameter("coef") , request.getParameter("credit") ,request.getParameter("num_compostage")  ,request.getParameter("id_enseignant") );
+            MatiereDAO. add(request.getParameter("libelle") , request.getParameter("volumec") , request.getParameter("volumetd") , request.getParameter("volumetp") , request.getParameter("coef") , request.getParameter("credit")   ,request.getParameter("id_enseignant") );
     
             
             RequestDispatcher rd;
